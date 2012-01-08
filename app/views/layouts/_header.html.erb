@@ -1,0 +1,21 @@
+<header>
+ <% logo = image_tag("chiara.png", :alt => "My App", :class => "round") %>
+ <%= link_to logo, root_path %>
+ <nav class="round">
+  <ul>
+     <%= link_to "Home", root_path %>
+     <!--% if signed_in?%-->
+     <%= link_to "Users", users_path %>
+     <%= link_to "Profile", current_user %>
+     <%= link_to "Settings", edit_user_path(current_user) %>
+     <!--% end %-->
+     
+     <%= link_to "Help", help_path %>
+     <% if signed_in?%>
+     <%= link_to "Sign out", signout_path, :method => :delete %>
+     <% else %>
+     <%= link_to "Sign in", signin_path %>
+     <% end %>
+  </ul>
+ </nav>
+</header>
